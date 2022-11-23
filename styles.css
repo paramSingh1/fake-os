@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.desktop__container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #008080;
+}
+
+.icon__container {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+}
+.icon__container__icons {
+  width: 100%;
+  padding: 5px;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
