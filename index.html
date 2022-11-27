@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="./images/favicon.ico" />
     <script src="./scripts/index.js" defer></script>
     <title>Windows 98</title>
   </head>
@@ -13,37 +14,63 @@
       <div class="desktop__container">
         <div class="icon__container">
           <div class="icon__container__icons">
-            <img src="./images/bin.png" alt="recycle bin" />
-            <span>Recycle Bin</span>
+            <img src="./images/bin.png" id="bin" alt="recycle bin" />
+            <span class="programName">Recycle Bin</span>
           </div>
 
           <div class="icon__container__icons">
-            <img src="./images/mycomputer.png" alt="my computer" />
-            <span>My Computer</span>
+            <img
+              src="./images/mycomputer.png"
+              id="mycomputer"
+              alt="my computer"
+            />
+            <span class="programName">My Computer</span>
           </div>
 
           <div class="icon__container__icons">
-            <img src="./images/documents.png" alt="my documents" />
-            <span>Documents</span>
+            <img
+              src="./images/documents.png"
+              id="documents"
+              alt="my documents"
+            />
+            <span class="programName">Documents</span>
           </div>
           <div class="icon__container__icons">
-            <img src="./images/notepad.png" alt="Notepad" />
-            <span>Notepad</span>
+            <img src="./images/notepad.png" id="notepad" alt="Notepad" />
+            <span class="programName">Notepad</span>
           </div>
 
           <div class="icon__container__icons">
-            <img src="./images/ie.png" alt="internet explorer" />
-            <span>Internet Explorer</span>
+            <img src="./images/ie.png" id="ie" alt="internet explorer" />
+            <span class="programName">Internet Explorer</span>
           </div>
           <div class="icon__container__icons">
-            <img src="./images/resume.png" alt="linkedin" />
-            <span>Linkedin</span>
+            <img src="./images/resume.png" id="resume" alt="linkedin" />
+            <span class="programName">Linkedin</span>
           </div>
           <div class="icon__container__icons">
-            <img src="./images/github.png" alt="github" />
-            <span>Github</span>
+            <img src="./images/github.png" id="github" alt="github" />
+            <span class="programName">Github</span>
           </div>
         </div>
+
+        <!-- Modal Template to be reused across app -->
+        <div class="window__container">
+          <div class="window__container--wrapper">
+            <div class="window__container--topbar">
+              <div class="window__container--topbar--name">
+                <p>Program Name</p>
+              </div>
+              <div class="window__container--topbar--buttons">
+                <button class="minimize">_</button>
+                <button class="enlarge">[]</button>
+                <button class="close">X</button>
+              </div>
+            </div>
+            <div class="window__container__body"></div>
+          </div>
+        </div>
+        <!-- End of the template -->
       </div>
       <div class="taskbar__container">
         <div class="taskbar__container--left">
@@ -51,11 +78,118 @@
             <img src="./images/start.png" alt="" />
             <p>Start</p>
           </div>
+
+          <div class="openProgram__container">
+            <div class="openProgram__container--item">
+              <img
+                class="openProgram__container--img"
+                src="./images/resume.png"
+                alt="icon"
+              />
+              <span class="openProgram__container--name" style="color: black"
+                >xxxx</span
+              >
+            </div>
+          </div>
         </div>
 
         <div class="taskbar__container--right">
           <div class="taskbar__container--right--clock">
             <p id="clock">00:00</p>
+          </div>
+        </div>
+      </div>
+      <div class="startMenu__modal startMenu__modal--hidden">
+        <div class="startMenu__modal--container">
+          <div class="startMenu__modal--left">
+            <p>Windows98</p>
+          </div>
+          <div class="startMenu__modal--right">
+            <div class="startMenu__modal--right--item">
+              <img
+                id="programs"
+                class="startMenu__modal--icon"
+                src="./images/programs.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Programs</p>
+            </div>
+            <div class="startMenu__modal--right--item">
+              <img
+                id="favorites"
+                class="startMenu__modal--icon"
+                src="./images/favorites.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Favourites</p>
+            </div>
+
+            <div class="startMenu__modal--right--item">
+              <img
+                id="mydocs"
+                class="startMenu__modal--icon"
+                src="./images/mydocs.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Documents</p>
+            </div>
+
+            <div class="startMenu__modal--right--item">
+              <img
+                id="settings"
+                class="startMenu__modal--icon"
+                src="./images/settings.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Settings</p>
+            </div>
+            <div class="startMenu__modal--right--item">
+              <img
+                id="find"
+                class="startMenu__modal--icon"
+                src="./images/find.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Find</p>
+            </div>
+            <div class="startMenu__modal--right--item">
+              <img
+                id="help"
+                class="startMenu__modal--icon"
+                src="./images/help.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Help</p>
+            </div>
+            <div class="startMenu__modal--right--item">
+              <img
+                id="minesweeper"
+                class="startMenu__modal--icon"
+                src="./images/minesweeper.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Minesweeper</p>
+            </div>
+            <div class="menuBreak"></div>
+
+            <div class="startMenu__modal--right--item">
+              <img
+                id="logoff"
+                class="startMenu__modal--icon"
+                src="./images/logoff.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Log Off</p>
+            </div>
+            <div class="startMenu__modal--right--item">
+              <img
+                id="shutdown"
+                class="startMenu__modal--icon"
+                src="./images/shutdown.png"
+                alt=""
+              />
+              <p class="startMenu__modal--name">Shut Down</p>
+            </div>
           </div>
         </div>
       </div>

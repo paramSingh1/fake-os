@@ -1,0 +1,20 @@
+@use "./partials";
+
+.window__container {
+  align-self: center;
+  display: none;
+  z-index: 0;
+  height: 60vh;
+  width: 100vh;
+  background-color: white;
+  margin: 30px 70px;
+  &--wrapper {
+    width: 100%;
+  }
+  &--topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 4px;
+    background-color: partials.$ui-blue;
+  }
+}
