@@ -117,10 +117,9 @@ const clock = () => {
 
   let time = `${hours}:${minutes} ${meridian} `;
   // CHANGE THIS VALUE BACK TO 1000
-  setInterval(clock, 100000);
+  setInterval(clock, 1000);
 
   target.innerText = time;
-  // console.log(time);
 };
 
 //Add close button event listener.
@@ -181,7 +180,6 @@ const removeIconBorders = () => {
 };
 desktopIcons.forEach((ele) => {
   ele.addEventListener("click", () => {
-    // console.log(ele.style);
     removeIconBorders();
     ele.style.border = "1px dashed grey";
   });
