@@ -13,8 +13,21 @@
   }
   &--topbar {
     display: flex;
+    color: white;
     justify-content: space-between;
     padding: 1px 4px;
     background-color: partials.$ui-blue;
   }
+}
+.window__container__body {
+  width: 100%;
+  height: 100%;
+}
+.windowIframe {
+  height: 100%;
+  width: 100%;
+}
+.notepad__TextArea {
+  padding: 5px;
+  font-size: 22px;
 }

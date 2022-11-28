@@ -20,7 +20,81 @@ desktop.addEventListener("click", () => {
 });
 
 console.log(startBtn);
+const windowBody = document.querySelector(".window__container__body");
 
+const renderItems = (id) => {
+  clearWindow();
+
+  switch (id) {
+    case "bin":
+      console.log("bin", id);
+
+      customElement(windowBody, "div", "", explorerDiv);
+
+      console.log("ok");
+      break;
+
+    case "ie":
+      customElement(
+        windowBody,
+        "iframe",
+        "https://askjeeves.net/",
+        "windowIframe"
+      );
+      break;
+    case "mydocs":
+      console.log("hi", id);
+      break;
+
+    case "notepad":
+      console.log("clicked on", id);
+      customElement(windowBody, "textArea", "", "notepad__TextArea");
+      const textArea = document.querySelector(".notepad__TextArea");
+      textArea.style.width = "100%";
+      textArea.style.height = "100%";
+      textArea.style.resize = "none";
+
+      break;
+    case "resume":
+      customElement(
+        windowBody,
+        "iframe",
+        "https://www.linkedin.com/in/paramsinghau/",
+        "windowIframe"
+      );
+      break;
+    case "github":
+      customElement(
+        windowBody,
+        "iframe",
+        "https://github.com/paramSingh1",
+        "windowIframe"
+      );
+      break;
+    case "minesweeper":
+      customElement(
+        windowBody,
+        "iframe",
+        "https://minesweeper.online/",
+        "windowIframe"
+      );
+      break;
+    default:
+      console.log(id);
+  }
+};
+const customElement = (parent, eleType, srcLink, className) => {
+  console.log(parent);
+  const newElement = document.createElement(`${eleType}`);
+  console.log(newElement);
+  newElement.src = "";
+  newElement.src = srcLink;
+  newElement.classList.add(`${className}`);
+  parent.appendChild(newElement);
+};
+const clearWindow = () => {
+  windowBody.innerHTML = "";
+};
 const clock = () => {
   const target = document.getElementById("clock");
   // console.log(target.innerHTML);
@@ -82,7 +156,6 @@ const openWindow = (container) => {
   windowContainer.style.display = "flex";
   const childElements = container.childNodes[3].innerText;
   const id = container.childNodes[1].id;
-  console.log(container);
 
   programName.innerText = childElements;
 
@@ -91,17 +164,28 @@ const openWindow = (container) => {
 };
 
 const desktopIcons = document.querySelectorAll(".icon__container__icons");
+const singledesktopIcons = document.querySelector(".icon__container__icons");
+
 desktopIcons.forEach((ele) =>
   ele.addEventListener("dblclick", () => {
     openWindow(ele);
+    renderItems(ele.childNodes[1].id);
   })
 );
-// desktopIcons.forEach((ele) => {
-//   ele.addEventListener("click", () => {
-//     console.log(ele.style);
-//     ele.style.border = "1px dashed grey";
-//   });
-// });
+
+const removeIconBorders = () => {
+  console.log(desktopIcons);
+  desktopIcons.forEach((ele) => {
+    ele.style.border = "0px solid white";
+  });
+};
+desktopIcons.forEach((ele) => {
+  ele.addEventListener("click", () => {
+    // console.log(ele.style);
+    removeIconBorders();
+    ele.style.border = "1px dashed grey";
+  });
+});
 
 const StartMenuItem = document.querySelectorAll(
   ".startMenu__modal--right--item"
@@ -112,10 +196,10 @@ StartMenuItem.forEach((ele) => {
     windowContainer.style.display = "flex";
     let itemID = ele.childNodes[1].id;
     let displayName = ele.childNodes[3].innerText;
-    console.log(itemID);
+    menuDisplay.style.display = "none";
+    renderItems(itemID);
     openWindow(ele);
     addItemToTaskbar(itemID, displayName);
   });
 });
-console.log(desktopIcons);
 clock();
