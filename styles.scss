@@ -1,0 +1,53 @@
+@use "./partials/partials";
+@use "./partials/startMenu";
+@use "./partials/window";
+
+@font-face {
+  font-family: "w95faregular";
+  src: url("./fonts/webfontkit-20221123-064044/w95fa-webfont.woff2")
+      format("woff2"),
+    url("./fonts/webfontkit-20221123-064044/w95fa-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+$winFont: "w95faregular";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $winFont;
+  font-weight: 200;
+}
+.desktop__wrapper {
+  height: 100vh;
+}
+.desktop__container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 96vh;
+  background-color: partials.$bg-teal;
+}
+
+.icon__container {
+  display: flex;
+  flex-direction: column;
+  color: partials.$ui-grey2;
+
+  width: 50px;
+
+  &__icons {
+    width: 100%;
+    padding: 5px;
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  &__icons:hover {
+    cursor: pointer;
+  }
+}
